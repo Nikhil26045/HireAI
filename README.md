@@ -5,12 +5,13 @@ An AI-powered recruitment platform that helps recruiters analyze resumes, match 
 ## Team
 
 - Team Lead: Nikhil Yadav
-- Developer: <Friend's Name>
+- Developer: Mahima Kumawat
 
 ## Tech Stack
 
 - React
 - Node.js
+- Fast API
 - Express
 - MySQL
 - Python (Machine Learning)
