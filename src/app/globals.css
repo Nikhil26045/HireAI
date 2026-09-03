@@ -1,0 +1,475 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Navy Brand ── */
+  --color-navy-900: #06142F;
+  --color-navy-800: #071A3D;
+  --color-navy-700: #0B234D;
+  --color-navy-600: #122D5F;
+  --color-navy-500: #1E3A6F;
+
+  /* ── Refined Blue Accent ── */
+  --color-accent-50: #F5F8FC;
+  --color-accent-100: #E8F0FB;
+  --color-accent-200: #C8DCF5;
+  --color-accent-300: #94BCEC;
+  --color-accent-400: #5B95E0;
+  --color-accent-500: #2563EB;
+  --color-accent-600: #1D4ED8;
+  --color-accent-700: #1E40AF;
+
+  /* ── Neutral / Slate ── */
+  --color-neutral-50: #F8FAFC;
+  --color-neutral-100: #F1F5F9;
+  --color-neutral-200: #DCE5F0;
+  --color-neutral-300: #B8C5D6;
+  --color-neutral-400: #8896A8;
+  --color-neutral-500: #5F718F;
+  --color-neutral-600: #44536B;
+  --color-neutral-700: #2D3A50;
+  --color-neutral-800: #1A2438;
+  --color-neutral-900: #0B1736;
+
+  /* ── Semantic colors ── */
+  --color-success-50: #ECFDF5;
+  --color-success-500: #0F9F78;
+  --color-success-600: #059669;
+  --color-success-700: #047857;
+
+  --color-warning-50: #FFFBEB;
+  --color-warning-500: #F59E0B;
+  --color-warning-600: #D97706;
+  --color-warning-700: #B45309;
+
+  --color-error-50: #FEF2F2;
+  --color-error-500: #EF4444;
+  --color-error-600: #DC2626;
+  --color-error-700: #B91C1C;
+
+  /* ── Surfaces ── */
+  --color-surface: #FFFFFF;
+  --color-surface-secondary: #F5F8FC;
+  --color-surface-tertiary: #F1F5F9;
+
+  /* ── Shadows ── */
+  --shadow-card: 0 1px 3px 0 rgb(7 26 61 / 0.06), 0 1px 2px -1px rgb(7 26 61 / 0.04);
+  --shadow-elevated: 0 8px 24px -4px rgb(7 26 61 / 0.08), 0 4px 8px -2px rgb(7 26 61 / 0.04);
+  --shadow-dropdown: 0 12px 32px -4px rgb(7 26 61 / 0.12), 0 4px 12px -2px rgb(7 26 61 / 0.06);
+  --shadow-navy: 0 12px 40px -8px rgb(7 26 61 / 0.25);
+  --shadow-glow: 0 0 40px -8px rgb(37 99 235 / 0.25);
+
+  /* ── Radius ── */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--color-navy-900);
+  background: #FFFFFF;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-accent-500);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ───────────── Animation Keyframes ───────────── */
+
+@keyframes hf-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes hf-slide-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hf-slide-down {
+  from { opacity: 0; transform: translateY(-16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hf-slide-right {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes hf-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes hf-progress-fill {
+  from { width: 0%; }
+}
+
+@keyframes hf-draw {
+  from { stroke-dashoffset: var(--hf-circ); }
+  to { stroke-dashoffset: var(--hf-offset); }
+}
+
+@keyframes hf-pulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.06); }
+}
+
+@keyframes hf-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ── New: subtle card float (4-5px, slow) ── */
+@keyframes hf-card-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+/* ── New: progress bar fill (uses --bar-target width) ── */
+@keyframes hf-bar-fill {
+  from { width: 0%; }
+  to { width: var(--bar-target, 100%); }
+}
+
+/* ── New: scale-x based bar fill (avoids CSS var keyframe quirks) ── */
+@keyframes hf-bar-grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* ── New: AI node single soft pulse (plays once on intersection) ── */
+@keyframes hf-ai-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.45); }
+  60%  { box-shadow: 0 0 0 14px rgba(37, 99, 235, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+}
+
+/* ── New: gentle icon glow pulse for AI Insights Ready ── */
+@keyframes hf-icon-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+  50%      { box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.15); }
+}
+
+/* ── New: ambient glow drift (very slow) ── */
+@keyframes hf-glow-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+  50%      { transform: translate(8px, -6px) scale(1.04); opacity: 0.8; }
+}
+
+/* ───────────── Reusable Animation Utilities ───────────── */
+
+.hf-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.hf-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hf-fade {
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+.hf-fade.is-visible {
+  opacity: 1;
+}
+
+/* Default: visible. Stagger animation only plays when .is-visible is set on the parent. */
+.hf-stagger > * {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hf-stagger.is-visible > *:nth-child(1) { transition-delay: 0.05s; }
+.hf-stagger.is-visible > *:nth-child(2) { transition-delay: 0.15s; }
+.hf-stagger.is-visible > *:nth-child(3) { transition-delay: 0.25s; }
+.hf-stagger.is-visible > *:nth-child(4) { transition-delay: 0.35s; }
+.hf-stagger.is-visible > *:nth-child(5) { transition-delay: 0.45s; }
+.hf-stagger.is-visible > *:nth-child(6) { transition-delay: 0.55s; }
+.hf-stagger.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hf-float {
+  animation: hf-float 6s ease-in-out infinite;
+}
+.hf-float-delayed {
+  animation: hf-float 6s ease-in-out infinite 2s;
+}
+
+.hf-pulse {
+  animation: hf-pulse 3s ease-in-out infinite;
+}
+
+/* Subtle product card float — default static, opt-in float */
+.hf-card-float {
+  animation: hf-card-float 7s ease-in-out infinite;
+}
+
+/* Bar fill — default full width, opt-in to scaleX 0→1 with transform-origin left */
+.hf-bar {
+  transform-origin: left center;
+  transform: scaleX(1);
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-bar-in-view="true"] .hf-bar {
+  animation: hf-bar-grow 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* AI node one-shot pulse (default: no pulse; fires once when section in view) */
+.hf-ai-pulse {
+  /* no animation by default */
+}
+[data-cp-in-view="true"] .hf-ai-pulse {
+  animation: hf-ai-pulse 1.6s ease-out 0.6s 1 both;
+}
+
+/* AI Insights Ready icon glow pulse for AI Insights Ready card */
+.hf-icon-pulse {
+  animation: hf-icon-pulse 2.4s ease-in-out infinite;
+}
+
+/* Insight row — default visible, gentle fade-in entrance on hero load */
+.hf-insight {
+  opacity: 0;
+  transform: translateX(-8px);
+  animation: hf-slide-right 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Ambient glow drift for hero/CTA background blobs */
+.hf-glow-drift {
+  animation: hf-glow-drift 14s ease-in-out infinite;
+}
+
+/* ───────────── Scroll-Reveal Animation Classes ─────────────
+   Visibility strategy: content is visible by default. The data-*
+   attribute on a parent toggles a brief entrance animation. The
+   entrance is OPT-IN — if JS never fires, content is still shown. */
+
+.hf-reveal {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+[data-hf-reveal="true"] .hf-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+}
+[data-hf-reveal="true"] .hf-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hf-fade {
+  opacity: 1;
+  transition: opacity 0.6s ease-out;
+}
+[data-hf-reveal="true"] .hf-fade {
+  opacity: 0;
+}
+[data-hf-reveal="true"] .hf-fade.is-visible {
+  opacity: 1;
+}
+
+/* Core product section step animations */
+.cp-step {
+  opacity: 1;
+  transform: none;
+}
+[data-cp-in-view="true"] .cp-step {
+  animation: hf-slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.cp-step-mobile {
+  opacity: 1;
+  transform: none;
+}
+[data-cp-in-view="true"] .cp-step-mobile {
+  animation: hf-slide-right 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.cp-dims {
+  opacity: 1;
+  transition: opacity 0.6s ease-out;
+}
+[data-cp-in-view="true"] .cp-dims {
+  animation: hf-fade-in 0.6s ease-out 0.8s both;
+}
+
+/* Workflow step animations */
+.wf-step {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+[data-wf-in-view="true"] .wf-step {
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  animation: hf-slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.wf-step-mobile {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+[data-wf-in-view="true"] .wf-step-mobile {
+  opacity: 0;
+  transform: translateX(-12px);
+  animation: hf-slide-right 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Dashboard showcase animations */
+.db-root {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+[data-db-in-view="true"] .db-root {
+  animation: hf-slide-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.db-header {
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+}
+[data-db-in-view="true"] .db-header {
+  animation: hf-fade-in 0.5s ease-out 0.1s both;
+}
+.db-row {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out, background-color 0.2s;
+}
+[data-db-in-view="true"] .db-row {
+  animation: hf-slide-right 0.5s ease-out both;
+}
+.db-panel {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+[data-db-in-view="true"] .db-panel {
+  animation: hf-slide-up 0.6s ease-out 0.5s both;
+}
+.db-score-bar {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+[data-db-in-view="true"] .db-score-bar {
+  animation: hf-slide-right 0.4s ease-out both;
+}
+.db-score-bar-fill {
+  transform-origin: left center;
+  transform: scaleX(1);
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-db-in-view="true"] .db-score-bar-fill {
+  animation: hf-bar-grow 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.db-insight {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+[data-db-in-view="true"] .db-insight {
+  animation: hf-fade-in 0.4s ease-out both;
+}
+
+/* Explainable AI section animations */
+.exw-left,
+.exw-right {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+[data-exw-in-view="true"].exw-left,
+[data-exw-in-view="true"] .exw-left {
+  animation: hf-slide-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+[data-exw-in-view="true"].exw-right,
+[data-exw-in-view="true"] .exw-right {
+  animation: hf-slide-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+.exw-bar {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+[data-exw-bars-in-view="true"] .exw-bar {
+  animation: hf-slide-right 0.4s ease-out both;
+}
+.exw-bar-fill {
+  width: var(--bar-pct, 0%);
+  transform-origin: left center;
+  transform: scaleX(1);
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-exw-bars-in-view="true"] .exw-bar-fill {
+  transform: scaleX(0);
+  animation: hf-bar-grow 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.exw-bar:nth-child(1) .exw-bar-fill { --bar-pct: 91%; }
+.exw-bar:nth-child(2) .exw-bar-fill { --bar-pct: 84%; }
+.exw-bar:nth-child(3) .exw-bar-fill { --bar-pct: 88%; }
+.exw-bar:nth-child(4) .exw-bar-fill { --bar-pct: 85%; }
+.exw-reason {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+[data-exw-reasons-in-view="true"] .exw-reason {
+  animation: hf-slide-right 0.5s ease-out both;
+}
+
+/* Final CTA animations */
+.cta-headline,
+.cta-paragraph,
+.cta-buttons {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+[data-cta-in-view="true"] .cta-headline {
+  animation: hf-slide-up 0.7s ease-out both;
+}
+[data-cta-in-view="true"] .cta-paragraph {
+  animation: hf-slide-up 0.7s ease-out 0.1s both;
+}
+[data-cta-in-view="true"] .cta-buttons {
+  animation: hf-slide-up 0.7s ease-out 0.2s both;
+}
+
+/* Reduced motion: disable all custom animations */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .hf-float, .hf-float-delayed, .hf-pulse,
+  .hf-card-float, .hf-icon-pulse, .hf-glow-drift {
+    animation: none !important;
+  }
+  .hf-insight {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .hf-bar, .db-score-bar-fill, .exw-bar-fill {
+    transform: scaleX(1) !important;
+    width: var(--bar-pct, 100%) !important;
+  }
+}
