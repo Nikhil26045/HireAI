@@ -158,13 +158,19 @@ body {
 /* ── New: gentle icon glow pulse for AI Insights Ready ── */
 @keyframes hf-icon-pulse {
   0%, 100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
-  50%      { box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.15); }
+  50%      { box-shadow: 0 0 0 7px rgba(37, 99, 235, 0.2); }
+}
+
+/* ── New: very slow gentle float for decorative badges ── */
+@keyframes hf-badge-float {
+  0%, 100% { transform: translateY(0px); }
+  50%      { transform: translateY(-6px); }
 }
 
 /* ── New: ambient glow drift (very slow) ── */
 @keyframes hf-glow-drift {
-  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
-  50%      { transform: translate(8px, -6px) scale(1.04); opacity: 0.8; }
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+  50%      { transform: translate(10px, -8px) scale(1.05); opacity: 0.7; }
 }
 
 /* ───────────── Reusable Animation Utilities ───────────── */
@@ -218,7 +224,17 @@ body {
 
 /* Subtle product card float — default static, opt-in float */
 .hf-card-float {
-  animation: hf-card-float 7s ease-in-out infinite;
+  animation: hf-card-float 8s ease-in-out infinite;
+}
+
+.hf-badge-float {
+  animation: hf-badge-float 4s ease-in-out infinite;
+}
+
+/* ── New: dot-grid decorative pattern ── */
+[data-dot-pattern] {
+  background-image: radial-gradient(circle, currentColor 0.8px, transparent 1px);
+  background-size: 22px 22px;
 }
 
 /* Bar fill — default full width, opt-in to scaleX 0→1 with transform-origin left */
@@ -418,7 +434,8 @@ body {
   transform: scaleX(1);
   transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
-[data-exw-bars-in-view="true"] .exw-bar-fill {
+[data-exw-bars-in-view="true"] .exw-bar-fill,
+[data-exw-in-view="true"] .exw-bar-fill {
   transform: scaleX(0);
   animation: hf-bar-grow 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
@@ -453,23 +470,195 @@ body {
   animation: hf-slide-up 0.7s ease-out 0.2s both;
 }
 
-/* Reduced motion: disable all custom animations */
+/* Purpose section — framed editorial container */
+.purpose-frame {
+  opacity: 1;
+}
+[data-purpose-in-view="true"] .purpose-frame {
+  animation: hf-fade-in 0.5s ease-out 0.1s both;
+}
+
+/* Editorial statement reveal */
+[data-purpose-in-view="true"] .purpose-editorial {
+  animation: hf-slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* AI-assisted / Human-led badge reveal */
+.purpose-badge {
+  opacity: 1;
+}
+[data-purpose-in-view="true"] .purpose-badge {
+  animation: hf-fade-in 0.5s ease-out 0.6s both;
+}
+
+/* Feature cards — default visible, opt-in reveal */
+.purpose-item {
+  opacity: 1;
+  border-color: transparent;
+  transition: border-color 0.4s ease-out, transform 0.4s ease-out, box-shadow 0.4s ease-out;
+}
+[data-purpose-in-view="true"] .purpose-item {
+  animation: hf-slide-right 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+[data-purpose-in-view="true"] .purpose-item:nth-child(1) { animation-delay: 0.4s; }
+[data-purpose-in-view="true"] .purpose-item:nth-child(2) { animation-delay: 0.52s; }
+[data-purpose-in-view="true"] .purpose-item:nth-child(3) { animation-delay: 0.64s; }
+
+/* Number badge glow on card hover */
+[data-purpose-in-view="true"] .purpose-item:hover .purpose-badge-number {
+  box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.3);
+}
+
+/* Growing connecting line — starts clipped, grows down on view */
+.purpose-connector {
+  transform-origin: top;
+  transform: scaleY(0);
+}
+[data-purpose-in-view="true"] .purpose-connector {
+  animation: hf-fade-in 0.05s ease-out forwards, purpose-line-grow 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards;
+}
+@keyframes purpose-line-grow {
+  to { transform: scaleY(1); }
+}
+
+/* Why HireAI section cards */
+[data-whya-in-view="true"] .why-card {
+  opacity: 1;
+  animation: hf-slide-up 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+[data-whya-in-view="true"] .why-card:nth-child(1) { animation-delay: 0.1s; }
+[data-whya-in-view="true"] .why-card:nth-child(2) { animation-delay: 0.25s; }
+[data-whya-in-view="true"] .why-card:nth-child(3) { animation-delay: 0.4s; }
+
+/* Why arrows between cards — fade + slide */
+.why-arrow {
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: none;
+}
+[data-whya-in-view="true"] .why-arrow {
+  animation: hf-slide-right 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+[data-whya-in-view="true"] .why-arrow:nth-of-type(1) { animation-delay: 0.25s; }
+[data-whya-in-view="true"] .why-arrow:nth-of-type(2) { animation-delay: 0.4s; }
+
+/* Clarity transition element */
+[data-whya-clear-in-view="true"] .whya-clear {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: hf-fade-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+}
+
+/* Why header eyebrow reveal */
+[data-wha-eyebrow-in-view="true"] .whya-eyebrow {
+  opacity: 0;
+  animation: hf-fade-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+[data-wha-eyebrow-in-view="true"] h2 {
+  animation: hf-slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+[data-wha-eyebrow-in-view="true"] .whya-desc {
+  animation: hf-fade-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+}
+
+/* Hiring transformation nodes */
+.tran-node {
+  opacity: 1;
+}
+[data-tran-in-view="true"] .tran-node-trad {
+  animation: hf-slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+[data-tran-in-view="true"] .tran-node-hireai {
+  animation: hf-slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Meet HireAI feature points */
+[data-meet-in-view="true"] .meet-feature {
+  animation: hf-slide-right 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+[data-meet-in-view="true"] .meet-feature:nth-child(1) { animation-delay: 0.2s; }
+[data-meet-in-view="true"] .meet-feature:nth-child(2) { animation-delay: 0.3s; }
+[data-meet-in-view="true"] .meet-feature:nth-child(3) { animation-delay: 0.4s; }
+
+/* Principles section — editorial split layout */
+.principle-image-col {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+[data-princ-in-view="true"] .principle-image-col {
+  animation: hf-slide-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.principle-content-col {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+[data-princ-in-view="true"] .principle-content-col {
+  animation: hf-slide-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+.principle-item {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+[data-princ-in-view="true"] .principle-item {
+  animation: hf-slide-up 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+[data-princ-in-view="true"] .principle-item:nth-child(1) { animation-delay: 0.15s; }
+[data-princ-in-view="true"] .principle-item:nth-child(2) { animation-delay: 0.23s; }
+[data-princ-in-view="true"] .principle-item:nth-child(3) { animation-delay: 0.31s; }
+[data-princ-in-view="true"] .principle-item:nth-child(4) { animation-delay: 0.39s; }
+[data-princ-in-view="true"] .principle-item:nth-child(5) { animation-delay: 0.47s; }
+
+.principle-num {
+  transition: color 0.3s ease-out;
+}
+.principle-arrow {
+  transition: transform 0.3s ease-out, color 0.3s ease-out;
+}
+
+/* About counter cards */
+.counter-card {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+[data-counter-in-view="true"] .counter-card {
+  animation: hf-slide-up 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+[data-counter-in-view="true"] .counter-card:nth-child(1) { animation-delay: 0.05s; }
+[data-counter-in-view="true"] .counter-card:nth-child(2) { animation-delay: 0.15s; }
+[data-counter-in-view="true"] .counter-card:nth-child(3) { animation-delay: 0.25s; }
+[data-counter-in-view="true"] .counter-card:nth-child(4) { animation-delay: 0.35s; }
+
+/* About Final CTA */
+[data-cta-in-view="true"] .cta-headline {
+  animation: hf-slide-up 0.7s ease-out both;
+}
+[data-cta-in-view="true"] .cta-paragraph {
+  animation: hf-slide-up 0.7s ease-out 0.1s both;
+}
+[data-cta-in-view="true"] .cta-buttons {
+  animation: hf-slide-up 0.7s ease-out 0.2s both;
+}
+
+/* About reduced-motion overrides */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-  .hf-float, .hf-float-delayed, .hf-pulse,
-  .hf-card-float, .hf-icon-pulse, .hf-glow-drift {
+  .hf-card-float, .hf-glow-drift {
     animation: none !important;
   }
-  .hf-insight {
+  .purpose-frame, .purpose-editorial, .purpose-badge, .purpose-item,
+  .why-card, .why-arrow, .whya-eyebrow, .whya-clear, .whya-desc,
+  .tran-node,
+  .meet-feature, .principle-item, .principle-image-col, .principle-content-col, .principle-num, .principle-arrow, .counter-card,
+  .cta-headline, .cta-paragraph, .cta-buttons {
     opacity: 1 !important;
     transform: none !important;
   }
-  .hf-bar, .db-score-bar-fill, .exw-bar-fill {
-    transform: scaleX(1) !important;
-    width: var(--bar-pct, 100%) !important;
+  .purpose-connector {
+    transform: scaleY(1) !important;
   }
 }
