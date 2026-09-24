@@ -5,6 +5,8 @@ from app.routers.jobs import router as jobs_router
 from app.routers.test_auth import router as test_auth_router
 from app.routers.applications import router as applications_router
 from app.routers.resumes import router as resumes_router
+from app.routers.resume_processing import (router as resume_processing_router,)
+from app.routers.job_requirements import router as job_requirements_router
 
 app = FastAPI(
     title="HireAI API",
@@ -18,6 +20,8 @@ app.include_router(jobs_router)
 app.include_router(test_auth_router)
 app.include_router(applications_router)
 app.include_router(resumes_router)
+app.include_router(resume_processing_router)
+app.include_router(job_requirements_router)
 
 
 @app.get("/")

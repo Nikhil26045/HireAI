@@ -44,5 +44,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-#Resumes
+# Resumes
 storage/resumes/*
+!storage/resumes/.gitkeep
+
+# macOS
+Icon?

@@ -29,8 +29,11 @@ class ParsedResumeResponse(BaseModel):
     phone: str | None
     summary: str | None
     total_experience_years: int | None
+    raw_text: str | None
     parsed_data: dict | None
     created_at: datetime
     updated_at: datetime
 
-    model_config = ConfigDict(from_attributes=True)
+    model_config = ConfigDict(
+        from_attributes=True,
+    )
