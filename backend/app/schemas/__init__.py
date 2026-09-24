@@ -60,3 +60,9 @@ from app.schemas.user import (
     UserBase,
     UserResponse,
 )
+
+from app.schemas.job_requirement import (
+    JobRequirementCreate,
+    JobRequirementUpdate,
+    JobRequirementResponse,
+)

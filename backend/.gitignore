@@ -7,8 +7,10 @@ __pycache__/
 .venv/
 venv/
 
-# Environment variables
+# Environment
+.venv/
 .env
+.env.*
 
 # IDE
 .vscode/
@@ -16,6 +18,7 @@ venv/
 
 # OS
 .DS_Store
+Icon?
 
 # Testing
 .pytest_cache/
@@ -26,3 +29,7 @@ venv/
 
 # Alembic
 *.db
+
+# Resume uploads
+storage/resumes/*
+!storage/resumes/.gitkeep
