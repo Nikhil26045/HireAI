@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+.venv/
+venv/
+
+# Environment
+.venv/
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Icon?
+
+# Testing
+.pytest_cache/
+.coverage
+
+# Logs
+*.log
+
+# Alembic
+*.db
+
+# Resume uploads
+storage/resumes/*
+!storage/resumes/.gitkeep
