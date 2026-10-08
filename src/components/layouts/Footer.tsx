@@ -4,7 +4,6 @@ import {
   Mail,
   MapPin,
   Phone,
-  Sparkles,
 } from "lucide-react";
 
 const footerLinks = {
@@ -54,14 +53,8 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1.1fr_1fr] lg:gap-10">
           {/* Brand + Contact */}
           <div className="max-w-sm">
-            <Link href="/" className="inline-flex items-center gap-2.5">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-navy-900 text-white shadow-sm">
-                <Sparkles className="h-4 w-4" />
-              </span>
-
-              <span className="text-xl font-extrabold tracking-tight text-navy-900">
-                HireAI
-              </span>
+            <Link href="/" className="inline-flex items-center">
+              <img src="/logo.png" alt="HireAI Logo" className="w-12 h-auto" />
             </Link>
 
             <p className="mt-3 max-w-sm text-sm leading-6 text-neutral-500">

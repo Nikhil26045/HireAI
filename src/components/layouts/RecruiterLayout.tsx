@@ -74,16 +74,8 @@ export default function RecruiterLayout({ children }: RecruiterLayoutProps) {
         }`}
       >
         <div className="flex h-full flex-col">
-          <div className="flex h-16 items-center gap-2.5 border-b border-neutral-200 px-5">
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary-600 text-white">
-              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-                <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
-              </svg>
-            </span>
-            <span className="text-lg font-bold tracking-tight text-neutral-900">
-              Hire<span className="text-primary-600">AI</span>
-            </span>
+          <div className="flex h-16 items-center border-b border-neutral-200 px-5">
+            <img src="/logo.png" alt="HireAI Logo" className="w-12 h-auto" />
           </div>
 
           <nav className="flex-1 space-y-1 px-3 py-4">
