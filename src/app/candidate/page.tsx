@@ -446,7 +446,7 @@ export default function CandidatePage() {
 
             {/* CTA */}
             <div className="flex-shrink-0">
-              <Link href="/candidate/interview">
+              <Link href="/candidate/mock-interview">
                 <Button
                   size="lg"
                   className="!border-0 !bg-white !text-navy-900 shadow-lg transition-all hover:!bg-accent-50 hover:!text-navy-900 hover:shadow-xl md:w-auto"
