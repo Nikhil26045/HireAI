@@ -75,7 +75,7 @@ export default function RecruiterLayout({ children }: RecruiterLayoutProps) {
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="flex h-full flex-col">
+                <div className="flex h-full flex-col">
           <div className="flex h-16 items-center justify-between border-b border-neutral-200 px-5">
             <Link href="/dashboard" className="flex items-center">
               <img src="/logo.png" alt="HireAI Logo" className="w-12 h-auto" />
