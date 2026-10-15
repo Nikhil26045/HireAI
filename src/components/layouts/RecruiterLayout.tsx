@@ -2,6 +2,7 @@
 
 import { useState, type ReactNode } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Avatar from "@/components/ui/Avatar";
 
 interface NavItem {
@@ -30,7 +31,7 @@ const recruiterNav: NavItem[] = [
     ),
   },
   {
-    label: "Assessments",
+    label: "Interviews",
     href: "/dashboard/assessments",
     icon: (
       <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -39,7 +40,7 @@ const recruiterNav: NavItem[] = [
     ),
   },
   {
-    label: "Analytics",
+    label: "Evaluation Reports",
     href: "/dashboard/analytics",
     icon: (
       <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -55,9 +56,10 @@ interface RecruiterLayoutProps {
 
 export default function RecruiterLayout({ children }: RecruiterLayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
-    <div className="flex min-h-screen bg-neutral-50">
+    <div className="flex min-h-screen bg-neutral-50 text-neutral-900">
       {/* Mobile overlay */}
       {sidebarOpen && (
         <div
@@ -73,31 +75,51 @@ export default function RecruiterLayout({ children }: RecruiterLayoutProps) {
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="flex h-full flex-col">
-          <div className="flex h-16 items-center border-b border-neutral-200 px-5">
-            <img src="/logo.png" alt="HireAI Logo" className="w-12 h-auto" />
+                <div className="flex h-full flex-col">
+          <div className="flex h-16 items-center justify-between border-b border-neutral-200 px-5">
+            <Link href="/dashboard" className="flex items-center">
+              <img src="/logo.png" alt="HireAI Logo" className="w-12 h-auto" />
+            </Link>
           </div>
 
-          <nav className="flex-1 space-y-1 px-3 py-4">
-            {recruiterNav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900"
-              >
-                {item.icon}
-                {item.label}
-              </Link>
-            ))}
+          <nav className="flex-1 space-y-1.5 px-3 py-4 overflow-y-auto">
+            {recruiterNav.map((item) => {
+              const isActive =
+                pathname === item.href ||
+                (item.href !== "/dashboard" && pathname?.startsWith(item.href));
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-medium transition-all ${
+                    isActive
+                      ? "bg-navy-900 text-white shadow-md shadow-navy-900/10 translate-x-1"
+                      : "text-neutral-600 hover:bg-neutral-100 hover:text-navy-900"
+                  }`}
+                >
+                  {item.icon}
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="border-t border-neutral-200 p-4">
             <div className="flex items-center gap-3">
-              <Avatar name="Recruiter User" size="sm" />
+              <Avatar name="TechNova Recruiter" size="sm" />
               <div className="min-w-0 flex-1">
-                <p className="truncate text-sm font-medium text-neutral-900">Recruiter User</p>
-                <p className="truncate text-xs text-neutral-500">recruiter@hireai.com</p>
+                <p className="truncate text-sm font-medium text-neutral-900">Sarah Connor</p>
+                <p className="truncate text-xs text-neutral-500">TechNova Solutions</p>
               </div>
+            </div>
+            <div className="mt-3 pt-3 border-t border-neutral-100 flex items-center justify-between text-xs text-neutral-500">
+              <Link href="/" className="hover:text-accent-600 transition-colors">
+                Public Site
+              </Link>
+              <Link href="/login" className="hover:text-rose-600 transition-colors">
+                Sign Out
+              </Link>
             </div>
           </div>
         </div>
@@ -117,7 +139,10 @@ export default function RecruiterLayout({ children }: RecruiterLayoutProps) {
             </svg>
           </button>
           <div className="flex items-center gap-3">
-            <span className="text-sm text-neutral-500">Recruiter Portal</span>
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-accent-50 px-3 py-1 text-xs font-semibold text-accent-700 border border-accent-200/60">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent-500 animate-pulse"></span>
+              Recruiter Portal &bull; TechNova Solutions
+            </span>
           </div>
         </header>
         <main className="flex-1 overflow-y-auto p-4 lg:p-6">{children}</main>
