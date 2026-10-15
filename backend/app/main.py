@@ -12,6 +12,9 @@ from app.routers.recruiter_evaluation import (router as recruiter_evaluation_rou
 from app.routers import interview_questions
 from app.routers import interview_sessions
 from app.routers import interview_responses
+from app.routers import transcriptions
+from app.routers import ai_evaluations
+from app.routers import final_evaluations
 
 app = FastAPI(
     title="HireAI API",
@@ -32,6 +35,9 @@ app.include_router(recruiter_evaluation_router)
 app.include_router(interview_questions.router)
 app.include_router(interview_sessions.router)
 app.include_router(interview_responses.router)
+app.include_router(transcriptions.router)
+app.include_router(ai_evaluations.router)
+app.include_router(final_evaluations.router)
 
 
 @app.get("/")
