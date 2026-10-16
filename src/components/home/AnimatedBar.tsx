@@ -42,8 +42,7 @@ export default function AnimatedBar({
     <div className={`h-1.5 overflow-hidden rounded-full bg-neutral-200 ${className}`}>
       <div
         className={`h-full rounded-full ${fillClassName}`}
-        style={{ width: `${percentage * progress}%`, transition: "width 0.05s linear" }}
-      />
+style={{ width: `${percentage * progress}%`, transition: "width 0.05s linear", minWidth: value > 0 && progress === 0 ? "2px" : undefined }}      />
     </div>
   );
 }

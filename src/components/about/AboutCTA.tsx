@@ -36,7 +36,7 @@ export default function AboutCTA() {
             <div className="cta-buttons mt-7 flex flex-wrap justify-center gap-3">
               <Link href="/register">
                 <span className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 text-[15px] font-semibold text-navy-900 shadow-navy transition-all duration-200 hover:-translate-y-0.5 hover:shadow-elevated">
-                  Explore HireAI
+                  Get Started
                 </span>
               </Link>
               <Link href="/contact">
