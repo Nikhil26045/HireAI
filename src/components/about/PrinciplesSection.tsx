@@ -61,11 +61,7 @@ export default function PrinciplesSection() {
                   AI-assisted
                 </div>
 
-                <div className="hidden lg:flex absolute -right-3 top-1/2 h-16 w-1 -translate-y-1/2 flex-col items-center justify-center gap-1">
-                  <div className="h-1 w-1 rounded-full bg-accent-400" />
-                  <div className="h-1 w-1 rounded-full bg-accent-300" />
-                  <div className="h-1 w-1 rounded-full bg-accent-200" />
-                </div>
+                
               </div>
           </InViewport>
 
@@ -113,11 +109,7 @@ export default function PrinciplesSection() {
                             {principle.description}
                           </p>
                         </div>
-                        <div className="principle-arrow flex-shrink-0 pt-0.5 text-neutral-300 transition-all duration-300 group-hover:text-accent-500 group-hover:translate-x-1">
-                          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                          </svg>
-                        </div>
+                        
                       </div>
                     </div>
                   ))}

@@ -42,7 +42,7 @@ export default function AboutHero() {
             <div className="mt-6 flex flex-wrap gap-3">
               <Link href="/register">
                 <Button size="lg" className="bg-navy-800 px-7 hover:bg-navy-700 hover:shadow-navy">
-                  Explore HireAI
+                  Get Started
                 </Button>
               </Link>
               <Link href="/contact">

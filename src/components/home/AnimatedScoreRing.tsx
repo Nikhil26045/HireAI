@@ -102,8 +102,9 @@ export default function AnimatedScoreRing({
         </defs>
       </svg>
       <div className="absolute flex flex-col items-center">
-        <span className="text-2xl font-bold text-navy-900 tabular-nums">{displayScore}</span>
-        <span className="text-[10px] text-neutral-400">/ {max}</span>
+<span className="text-2xl font-bold text-accent-500 tabular-nums">
+  {displayScore}
+</span>        <span className="text-[10px] text-neutral-400">/ {max}</span>
       </div>
     </div>
   );

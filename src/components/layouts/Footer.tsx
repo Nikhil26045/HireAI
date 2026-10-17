@@ -9,7 +9,7 @@ import {
 const footerLinks = {
   product: [
     { label: "Features", href: "/services" },
-    { label: "How It Works", href: "/why-hireai" },
+    
   ],
   company: [
     { label: "Home", href: "/" },

@@ -81,9 +81,7 @@ export default function ContactSection() {
 
   return (
     <section className="relative overflow-hidden border-b border-accent-100/70 bg-gradient-to-br from-accent-50/45 via-white to-indigo-50/40 py-10 sm:py-12 lg:py-14">
-      {/* ─────────────────────────────────────
-          BACKGROUND ATMOSPHERE
-      ───────────────────────────────────── */}
+      {/* BACKGROUND ATMOSPHERE */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -left-32 top-20 h-72 w-72 rounded-full bg-accent-100/35 blur-[100px]" />
 
@@ -92,7 +90,7 @@ export default function ContactSection() {
         <div className="absolute left-1/2 top-1/2 h-64 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-50/50 blur-[100px]" />
       </div>
 
-      {/* subtle dot texture */}
+      {/* SUBTLE DOT TEXTURE */}
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.025]"
         data-dot-pattern
@@ -100,9 +98,7 @@ export default function ContactSection() {
       />
 
       <div className="relative mx-auto max-w-[1250px] px-5 sm:px-8 lg:px-10">
-        {/* ─────────────────────────────────────
-            SECTION INTRO
-        ───────────────────────────────────── */}
+        {/* SECTION INTRO */}
         <ScrollReveal variant="reveal" delay={0}>
           <div className="mb-7 flex items-end justify-between gap-6 sm:mb-8">
             <div>
@@ -132,13 +128,9 @@ export default function ContactSection() {
           </div>
         </ScrollReveal>
 
-        {/* ─────────────────────────────────────
-            MAIN CONTACT COMPOSITION
-        ───────────────────────────────────── */}
+        {/* MAIN CONTACT COMPOSITION */}
         <div className="grid items-stretch gap-6 lg:grid-cols-[0.82fr_1.18fr] lg:gap-7">
-          {/* ─────────────────────────────
-              LEFT — CONTACT PANEL
-          ───────────────────────────── */}
+          {/* LEFT — CONTACT PANEL */}
           <ScrollReveal variant="reveal" delay={80}>
             <div className="group relative h-full min-h-[500px] overflow-hidden rounded-[1.75rem] border border-accent-200/70 bg-gradient-to-br from-navy-900 via-navy-800 to-[#102d62] p-7 text-white shadow-[0_25px_70px_rgba(6,20,47,0.16)] sm:p-8">
               {/* Decorative atmosphere */}
@@ -182,64 +174,65 @@ export default function ContactSection() {
                   ready to hear from you.
                 </p>
 
-                {/* Connection visual */}
-                <div className="relative my-8 flex-1 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.045] p-5">
-                  {/* connection lines */}
-                  <div className="absolute left-[22%] top-[45%] h-px w-[56%] bg-gradient-to-r from-transparent via-blue-300/50 to-transparent" />
+                {/* CONNECTION VISUAL — UPDATED TO PREVENT OVERLAPPING */}
+                <div className="relative my-8 flex h-[170px] shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-white/[0.045] px-3 sm:h-[180px] sm:px-5">
+                  {/* Connecting lines behind the elements */}
+                  <div className="pointer-events-none absolute left-[18%] right-[18%] top-1/2 z-0 h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-blue-300/35 to-transparent" />
 
-                  <div className="absolute left-1/2 top-[22%] h-[56%] w-px bg-gradient-to-b from-transparent via-blue-300/40 to-transparent" />
+                  <div className="pointer-events-none absolute bottom-[22%] left-1/2 top-[22%] z-0 w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-blue-300/25 to-transparent" />
 
-                  <div className="absolute left-[28%] top-[30%] h-px w-[44%] rotate-[18deg] bg-gradient-to-r from-transparent via-indigo-300/35 to-transparent" />
+                  {/* Top-left signal */}
+                  <div className="absolute left-3 top-3 z-10 sm:left-5 sm:top-4">
+                    <MiniSignal
+                      className="static"
+                      label="Skills"
+                      delay="0s"
+                    />
+                  </div>
 
-                  <div className="absolute left-[28%] top-[60%] h-px w-[44%] rotate-[-18deg] bg-gradient-to-r from-transparent via-indigo-300/35 to-transparent" />
+                  {/* Top-right signal */}
+                  <div className="absolute right-3 top-3 z-10 sm:right-5 sm:top-4">
+                    <MiniSignal
+                      className="static"
+                      label="People"
+                      delay="1s"
+                    />
+                  </div>
 
-                  {/* central core */}
-                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <div className="absolute -inset-5 animate-pulse rounded-full bg-accent-400/15 blur-xl" />
-
-                    <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl border border-blue-300/30 bg-white/10 shadow-[0_10px_35px_rgba(37,99,235,0.25)] backdrop-blur-md">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white text-[10px] font-extrabold text-navy-900">
-                        AI
-                      </div>
+                  {/* Central AI element */}
+                  <div className="relative z-20 flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-blue-300/30 bg-[#17315c] shadow-[0_10px_35px_rgba(37,99,235,0.22)]">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white text-[10px] font-extrabold text-navy-900">
+                      AI
                     </div>
                   </div>
 
-                  <MiniSignal
-                    className="left-3 top-5"
-                    label="Resume"
-                    delay="0s"
-                  />
+                  {/* Bottom-left signal */}
+                  <div className="absolute bottom-3 left-3 z-10 sm:bottom-4 sm:left-5">
+                    <MiniSignal
+                      className="static"
+                      label="Resume"
+                      delay="1.8s"
+                    />
+                  </div>
 
-                  <MiniSignal
-                    className="right-3 top-5"
-                    label="Interview"
-                    delay="1s"
-                  />
-
-                  <MiniSignal
-                    className="bottom-5 left-3"
-                    label="Skills"
-                    delay="1.8s"
-                  />
-
-                  <MiniSignal
-                    className="bottom-5 right-3"
-                    label="People"
-                    delay="2.5s"
-                  />
+                  {/* Bottom-right signal */}
+                  <div className="absolute bottom-3 right-3 z-10 sm:bottom-4 sm:right-5">
+                    <MiniSignal
+                      className="static"
+                      label="Interview"
+                      delay="2.5s"
+                    />
+                  </div>
                 </div>
 
-                {/* Contact details */}
+                {/* CONTACT DETAILS */}
                 <div className="space-y-2">
                   {contactItems.map((item) => {
                     const Icon = item.icon;
-
                     const Wrapper = item.href ? "a" : "div";
 
                     const wrapperProps = item.href
-                      ? {
-                          href: item.href,
-                        }
+                      ? { href: item.href }
                       : {};
 
                     return (
@@ -269,18 +262,14 @@ export default function ContactSection() {
             </div>
           </ScrollReveal>
 
-          {/* ─────────────────────────────
-              RIGHT — CONTACT FORM
-          ───────────────────────────── */}
+          {/* RIGHT — CONTACT FORM */}
           <ScrollReveal variant="reveal" delay={160}>
             <div className="relative h-full rounded-[1.75rem] border border-accent-100 bg-white/90 p-6 shadow-[0_20px_60px_rgba(6,20,47,0.08)] backdrop-blur-sm sm:p-8">
-              {/* small top accent */}
+              {/* Small top accent */}
               <div className="absolute left-8 right-8 top-0 h-1 rounded-b-full bg-gradient-to-r from-accent-500 via-blue-500 to-indigo-500" />
 
               {submitted ? (
-                /* ─────────────────────
-                   SUCCESS STATE
-                ───────────────────── */
+                /* SUCCESS STATE */
                 <div className="flex min-h-[500px] flex-col items-center justify-center text-center">
                   <div className="relative">
                     <div className="absolute -inset-5 rounded-full bg-emerald-100/50 blur-xl" />
@@ -497,7 +486,7 @@ function MiniSignal({
 }) {
   return (
     <div
-      className={`absolute z-10 contact-signal-float ${className}`}
+      className={`${className} contact-signal-float`}
       style={{ animationDelay: delay }}
     >
       <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.08] px-2.5 py-1.5 backdrop-blur-md">
