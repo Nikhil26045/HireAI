@@ -117,12 +117,7 @@ export default function PurposeSection() {
                         </p>
                       </div>
 
-                      <span
-                        className="flex-shrink-0 text-xl text-neutral-300 transition-all duration-250 group-hover:text-accent-500 group-hover:translate-x-1"
-                        aria-hidden="true"
-                      >
-                        →
-                      </span>
+                      
                     </div>
                   ))}
                 </div>
