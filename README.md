@@ -18,18 +18,10 @@ An AI-powered recruitment platform that helps recruiters analyze resumes, match 
 
 ## Form - 2
 
-<p align="center">
-  <img src="docs/images/Form_2_pg-1.jpg" alt="HireAI Form 2 - Page 1" height="450">
-</p>
+![HireAI Form - 2](docs/images/Form_2_pg-1.jpg)
 
-<p align="center">
-  <img src="docs/images/Form_2_pg-2.jpg" alt="HireAI Form 2 - Page 2" height="450">
-</p>
+![HireAI Form - 2](docs/images/Form_2_pg-2.jpg)
 
-<p align="center">
-  <img src="docs/images/Form_2_pg-3.jpg" alt="HireAI Form 2 - Page 3" height="450">
-</p>
+![HireAI Form - 2](docs/images/Form_2_pg-3.jpg)
 
-<p align="center">
-  <img src="docs/images/Form_2_pg-4.jpg" alt="HireAI Form 2 - Page 4" height="450">
-</p>
+![HireAI Form - 2](docs/images/Form_2_pg-4.jpg)
