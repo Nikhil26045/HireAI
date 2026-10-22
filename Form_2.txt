@@ -1,0 +1,71 @@
+## 1. Team Lead — Nikhil Yadav
+
+Sprint Name: Setup & Backend Core
+
+| User Story                                                                                  | Start Date | End Date   | Details of Task Completed Under the User Story                                                                                                            |
+| ------------------------------------------------------------------------------------------- | ---------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Working repository and branching strategy set up, and project board set up                  | 10/08/2026 | 14/08/2026 | Repository creation, collaborator access, branch protection on `main`, feature-branch workflow, and GitHub Projects board with phases/sprints as columns. |
+| Database schema designed                                                                    | 15/08/2026 | 21/08/2026 | ERD designed for candidates, assessments, scores, and recruiters; PostgreSQL setup.                                                                       |
+| Authentication APIs built so candidates and recruiters can securely sign up and log in      | 17/08/2026 | 31/08/2026 | Signup/login endpoints, password hashing, and session/token-based authentication.                                                                         |
+| Candidate CRUD APIs built so candidate records can be created, viewed, updated, and deleted | 24/08/2026 | 07/09/2026 | `POST` / `GET` / `PUT` / `DELETE` candidate endpoints.                                                                                                    |
+
+## 2. Member 1 — Mahima Kumawat
+
+Sprint Name: Frontend and Dashboards (Recruiter)
+
+| User Story                                                                                | Start Date | End Date   | Details of Task Completed Under the User Story                                                                           |
+| ----------------------------------------------------------------------------------------- | ---------- | ---------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Next.js app scaffolded with navbar and layout                                             | 10/08/2026 | 21/08/2026 | Next.js app to be scaffolded with TypeScript and Tailwind CSS; navbar with logo, placeholder navlinks, and login button. |
+| Home page built so users can navigate to company or candidate login flows                 | 17/08/2026 | 31/08/2026 | Home page to be built with a hero section and CTAs for candidate and company access.                                     |
+| Built login/signup page so that dashboard can be accessed                                 | 24/08/2026 | 07/09/2026 | Candidate login/signup page to be built with basic form validation.                                                      |
+| Built company login/signup page so that dashboard can be accessed                         | 31/08/2026 | 14/09/2026 | Company login/signup page to be built with basic form validation.                                                        |
+| Upload interface for resume and audio/video response so that application can be submitted | 07/09/2026 | 25/09/2026 | Upload UI to be built in Next.js for resume and audio/video files.                                                       |
+| Dashboard showing candidate scores to be built                                            | 21/09/2026 | 09/10/2026 | Recruiter dashboard to be built in Next.js, displaying candidate list and scores.                                        |
+
+## 3. Member 2 — Nikhil Yadav
+
+Sprint Name: AI/ML Pipeline
+
+| User Story                                                                                                   | Start Date | End Date   | Details of Task Completed Under the User Story                                                      |
+| ------------------------------------------------------------------------------------------------------------ | ---------- | ---------- | --------------------------------------------------------------------------------------------------- |
+| Resume parsing module built using spaCy                                                                      | 01/09/2026 | 25/09/2026 | spaCy-based resume parsing module to be built and tested on sample resumes.                         |
+| Audio/video files pre-processed using FFmpeg so they are ready for transcription                             | 14/09/2026 | 09/10/2026 | FFmpeg pre-processing pipeline to be set up for incoming audio/video files.                         |
+| Interview audio/video transcribed using Whisper so spoken responses become analyzable text                   | 28/09/2026 | 23/10/2026 | Whisper-based transcription pipeline to be integrated for converting audio/video responses to text. |
+| Transcribed responses analyzed using BERT so communication quality can be assessed                           | 19/10/2026 | 20/11/2026 | BERT-based communication analysis to be applied to transcribed text.                                |
+| Parsing and transcription analysis pipeline exposed via FastAPI endpoints so the frontend can access results | 09/11/2026 | 27/11/2026 | Pipeline to be exposed via FastAPI endpoints for downstream consumption.                            |
+| Pipeline tested against sample resumes and interview recordings                                              | 23/11/2026 | 11/12/2026 | Full pipeline to be tested end-to-end against sample resumes and interview recordings.              |
+
+## 4. Member 3 — Mahima Kumawat
+
+Sprint Name: Candidate Scoring Model
+
+| User Story                                                                                                                          | Start Date | End Date   | Details of Task Completed Under the User Story                                                        |
+| ----------------------------------------------------------------------------------------------------------------------------------- | ---------- | ---------- | ----------------------------------------------------------------------------------------------------- |
+| Relevant features (resume fields, transcript analysis scores) prepared as model inputs so scoring can be trained on structured data | 12/10/2026 | 06/11/2026 | Resume and transcript to be extracted and structured as model input variables.                        |
+| Scoring model built and trained using scikit-learn                                                                                  | 02/11/2026 | 27/11/2026 | Scikit-learn scoring model to be trained on prepared feature data; model performance to be evaluated. |
+| Scoring model to output an overall score with a breakdown so evaluation is transparent                                              | 23/11/2026 | 11/12/2026 | Scoring output to be structured to return overall score plus sub-score breakdown by category.         |
+| Scoring model exposed via a FastAPI endpoint so the frontend can retrieve candidate scores                                          | 07/12/2026 | 18/12/2026 | Scoring endpoint to be built and integrated into the backend.                                         |
+| Scoring model validated against sample candidate data                                                                               | 14/12/2026 | 08/01/2027 | Scoring model to be tested against sample resumes and interview data to confirm consistency.          |
+
+## 5. Members — Nikhil Yadav and Mahima Kumawat
+
+Sprint Name: Integration & Testing
+
+| User Story                                                      | Start Date | End Date   | Details of Task Completed Under the User Story                                  |
+| --------------------------------------------------------------- | ---------- | ---------- | ------------------------------------------------------------------------------- |
+| Frontend connected to backend and ML pipeline APIs              | 09/01/2027 | 22/01/2027 | Frontend to be connected to backend and scoring APIs; data flow to be verified. |
+| Complete evaluation flow tested                                 | 18/01/2027 | 05/02/2027 | Full flow to be tested end-to-end using sample resumes and interview data.      |
+| Test cases written for backend APIs and scoring logic           | 01/02/2027 | 19/02/2027 | Unit test cases to be written for backend endpoints and scoring logic.          |
+| Frontend components tested across candidate and dashboard flows | 08/02/2027 | 19/02/2027 | Frontend components to be tested across candidate and dashboard flows.          |
+| Bugs identified and fixed during testing                        | 15/02/2027 | 26/02/2027 | Bugs identified during testing to be fixed across frontend and backend.         |
+
+## 6. Members — Nikhil Yadav and Mahima Kumawat
+
+Sprint Name: Deployment & Monitoring
+
+| User Story                                                   | Start Date | End Date   | Details of Task Completed Under the User Story                                                    |
+| ------------------------------------------------------------ | ---------- | ---------- | ------------------------------------------------------------------------------------------------- |
+| Backend and ML services deployed to a production environment | 22/02/2027 | 01/03/2027 | Backend and ML services to be deployed using AWS or a cloud service, with CI/CD and file storage. |
+| Frontend deployed to a production environment                | 24/02/2027 | 03/03/2027 | Frontend to be deployed through a GitHub Actions CI/CD pipeline.                                  |
+| The deployed application checked                             | 02/03/2027 | 08/03/2027 | Deployed application to be verified end-to-end for correct API connectivity and functionality.    |
+| The deployed application monitored                           | 04/03/2027 | 15/03/2027 | Deployed application to be monitored for uptime, performance, and stability issues.               |
