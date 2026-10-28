@@ -1,0 +1,32 @@
+{
+  "dataset_source": "michaelozon/candidate-matching-synthetic",
+  "license": "MIT",
+  "raw_counts": {
+    "jobs": 2500,
+    "resumes": 10000,
+    "match_records": 2500,
+    "total_positive_pairs": 75000
+  },
+  "sample_job_columns": [
+    "job_id",
+    "job_title",
+    "seniority",
+    "industry",
+    "must_have_skills",
+    "nice_to_have_skills",
+    "description",
+    "responsibilities",
+    "requirements"
+  ],
+  "sample_resume_columns": [
+    "resume_id",
+    "role",
+    "seniority",
+    "years_experience",
+    "industry",
+    "education",
+    "skills",
+    "summary",
+    "experience_bullets"
+  ]
+}

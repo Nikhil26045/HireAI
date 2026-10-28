@@ -1,0 +1,66 @@
+{
+  "source_dataset": "C:\\Users\\user\\Desktop\\final_year_project\\frontend\\ML-dataset\\CareerCorpus\\CareerCorpus.xlsx",
+  "total_records_read": 302,
+  "ground_truth_reconciliation": {
+    "total_records": 302,
+    "annotator_1": {
+      "mean": 0.71493,
+      "std": 0.21052,
+      "min": 0.07,
+      "max": 0.98
+    },
+    "annotator_2": {
+      "mean": 0.79278,
+      "std": 0.18674,
+      "min": 0.01,
+      "max": 0.99
+    },
+    "mean_absolute_difference": 0.10619
+  },
+  "job_type_normalization": {
+    "before": {
+      "Senior-level": 174,
+      "Entry-level": 70,
+      "Mid-level": 57,
+      "Entry-Level": 1
+    },
+    "after": {
+      "Senior-level": 174,
+      "Entry-Level": 71,
+      "Mid-level": 57
+    }
+  },
+  "repeated_ids_identified": {
+    "35421497": 2
+  },
+  "duplicate_preservation_details": [
+    {
+      "row_index": 170,
+      "id": "35421497",
+      "domain": "TEACHER",
+      "job_type": "Mid-level",
+      "annotator_1": 0.73,
+      "annotator_2": 0.79,
+      "skills_snippet": "Differentiated instruction, balanced literacy, classroom man",
+      "experience_snippet": "Teacher (Current)\u2014builds inclusive, inquiry-based classrooms"
+    },
+    {
+      "row_index": 171,
+      "id": "35421497",
+      "domain": "TEACHER",
+      "job_type": "Mid-level",
+      "annotator_1": 0.73,
+      "annotator_2": 0.66,
+      "skills_snippet": "Differentiated instruction, balanced literacy, classroom man",
+      "experience_snippet": "Teacher (current)\u2014inclusive, hands-on, adaptive lessons; Stu"
+    }
+  ],
+  "target_definition": {
+    "formula": "(Annotator-1 + Annotator-2) / 2.0",
+    "interpretation": "Continuous consensus relevance rating within candidate occupational domain",
+    "mean": 0.75386,
+    "std": 0.18839,
+    "min": 0.04,
+    "max": 0.965
+  }
+}
