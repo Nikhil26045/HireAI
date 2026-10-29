@@ -1,0 +1,36 @@
+{
+  "evaluation_setup": {
+    "test_jobs_count": 50,
+    "test_candidate_pool_size": 2000,
+    "input_mode": "Strictly narrative text",
+    "leakage_controls": "Same 50 test jobs and 2,000 candidate pool (seed 42); zero weight tuning on test set",
+    "rrf_constant": 60,
+    "linear_weights": "Predefined untuned 0.5 * MinMax(BM25) + 0.5 * MinMax(Dense)"
+  },
+  "methods_comparison": {
+    "bm25_lexical_retrieval": {
+      "mean_recall@5": 0.02,
+      "mean_recall@10": 0.0387,
+      "mean_mrr": 0.3004,
+      "mean_ndcg@10": 0.1196
+    },
+    "all_minilm_l6_v2_semantic": {
+      "mean_recall@5": 0.0213,
+      "mean_recall@10": 0.038,
+      "mean_mrr": 0.3136,
+      "mean_ndcg@10": 0.1207
+    },
+    "rrf_hybrid": {
+      "mean_recall@5": 0.02,
+      "mean_recall@10": 0.0373,
+      "mean_mrr": 0.2769,
+      "mean_ndcg@10": 0.1133
+    },
+    "linear_minmax_hybrid": {
+      "mean_recall@5": 0.0207,
+      "mean_recall@10": 0.0393,
+      "mean_mrr": 0.3191,
+      "mean_ndcg@10": 0.1241
+    }
+  }
+}

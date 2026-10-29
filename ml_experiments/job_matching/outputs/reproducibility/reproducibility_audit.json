@@ -1,0 +1,82 @@
+{
+  "timestamp": "2026-10-28 14:46:36",
+  "total_methods_benchmarked": 6,
+  "is_perfectly_reproducible": true,
+  "discrepancies_detected": [],
+  "run1_metrics": {
+    "keyword_skill_overlap": {
+      "mean_recall@5": 0.0013,
+      "mean_recall@10": 0.0033,
+      "mean_mrr": 0.0402,
+      "mean_ndcg@10": 0.0078
+    },
+    "bm25_lexical_retrieval": {
+      "mean_recall@5": 0.018,
+      "mean_recall@10": 0.038,
+      "mean_mrr": 0.2714,
+      "mean_ndcg@10": 0.1133
+    },
+    "all_minilm_l6_v2_semantic": {
+      "mean_recall@5": 0.0207,
+      "mean_recall@10": 0.0373,
+      "mean_mrr": 0.3189,
+      "mean_ndcg@10": 0.1211
+    },
+    "rrf_hybrid": {
+      "mean_recall@5": 0.0207,
+      "mean_recall@10": 0.032,
+      "mean_mrr": 0.2428,
+      "mean_ndcg@10": 0.0981
+    },
+    "linear_minmax_hybrid": {
+      "mean_recall@5": 0.02,
+      "mean_recall@10": 0.0373,
+      "mean_mrr": 0.3233,
+      "mean_ndcg@10": 0.122
+    },
+    "cross_encoder_reranked": {
+      "mean_recall@5": 0.02,
+      "mean_recall@10": 0.0367,
+      "mean_mrr": 0.2922,
+      "mean_ndcg@10": 0.1129
+    }
+  },
+  "run2_metrics": {
+    "keyword_skill_overlap": {
+      "mean_recall@5": 0.0013,
+      "mean_recall@10": 0.0033,
+      "mean_mrr": 0.0402,
+      "mean_ndcg@10": 0.0078
+    },
+    "bm25_lexical_retrieval": {
+      "mean_recall@5": 0.018,
+      "mean_recall@10": 0.038,
+      "mean_mrr": 0.2714,
+      "mean_ndcg@10": 0.1133
+    },
+    "all_minilm_l6_v2_semantic": {
+      "mean_recall@5": 0.0207,
+      "mean_recall@10": 0.0373,
+      "mean_mrr": 0.3189,
+      "mean_ndcg@10": 0.1211
+    },
+    "rrf_hybrid": {
+      "mean_recall@5": 0.0207,
+      "mean_recall@10": 0.032,
+      "mean_mrr": 0.2428,
+      "mean_ndcg@10": 0.0981
+    },
+    "linear_minmax_hybrid": {
+      "mean_recall@5": 0.02,
+      "mean_recall@10": 0.0373,
+      "mean_mrr": 0.3233,
+      "mean_ndcg@10": 0.122
+    },
+    "cross_encoder_reranked": {
+      "mean_recall@5": 0.02,
+      "mean_recall@10": 0.0367,
+      "mean_mrr": 0.2922,
+      "mean_ndcg@10": 0.1129
+    }
+  }
+}

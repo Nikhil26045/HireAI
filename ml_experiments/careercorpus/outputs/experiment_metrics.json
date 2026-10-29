@@ -1,0 +1,87 @@
+{
+  "split_information": {
+    "train_records": 241,
+    "test_records": 61,
+    "train_unique_ids": 240,
+    "test_unique_ids": 61,
+    "train_domain_counts": {
+      "Research Assistant": 44,
+      "Banking": 43,
+      "TEACHER": 40,
+      "Apparel": 40,
+      "ACCOUNTANT": 38,
+      "Finance": 36
+    },
+    "test_domain_counts": {
+      "Finance": 14,
+      "ACCOUNTANT": 13,
+      "TEACHER": 10,
+      "Apparel": 10,
+      "Banking": 7,
+      "Research Assistant": 7
+    },
+    "duplicate_id_placement": {
+      "35421497": "Train"
+    }
+  },
+  "pipeline_a_resume_text_only": {
+    "cross_validation_5fold": {
+      "dummy_regressor": {
+        "mean_cv_mae": 0.13939,
+        "std_cv_mae": 0.01874,
+        "mean_cv_rmse": 0.18809,
+        "std_cv_rmse": 0.0302,
+        "mean_cv_r2": -0.03402
+      },
+      "ridge_regressor": {
+        "mean_cv_mae": 0.09577,
+        "std_cv_mae": 0.01009,
+        "mean_cv_rmse": 0.13828,
+        "std_cv_rmse": 0.01755,
+        "mean_cv_r2": 0.42534
+      }
+    },
+    "held_out_test_evaluation": {
+      "dummy_regressor": {
+        "test_mae": 0.13076,
+        "test_rmse": 0.18158,
+        "test_r2": -0.00127
+      },
+      "ridge_regressor": {
+        "test_mae": 0.10113,
+        "test_rmse": 0.15258,
+        "test_r2": 0.29301
+      }
+    }
+  },
+  "pipeline_b_resume_text_plus_metadata": {
+    "cross_validation_5fold": {
+      "dummy_regressor": {
+        "mean_cv_mae": 0.13939,
+        "std_cv_mae": 0.01874,
+        "mean_cv_rmse": 0.18809,
+        "std_cv_rmse": 0.0302,
+        "mean_cv_r2": -0.03402
+      },
+      "ridge_regressor": {
+        "mean_cv_mae": 0.09012,
+        "std_cv_mae": 0.0081,
+        "mean_cv_rmse": 0.12661,
+        "std_cv_rmse": 0.015,
+        "mean_cv_r2": 0.51666
+      }
+    },
+    "held_out_test_evaluation": {
+      "dummy_regressor": {
+        "test_mae": 0.13076,
+        "test_rmse": 0.18158,
+        "test_r2": -0.00127
+      },
+      "ridge_regressor": {
+        "test_mae": 0.09535,
+        "test_rmse": 0.14426,
+        "test_r2": 0.36799
+      }
+    }
+  }
+}
