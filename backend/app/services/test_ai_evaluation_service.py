@@ -312,6 +312,7 @@ def evaluate_response(
     candidate_score.scoring_model = MODEL_NAME
     candidate_score.model_version = MODEL_VERSION
 
+    # Preserve resume-matching breakdowns. Update only our own categories.
     breakdowns = {
         "interview_relevance": (
             scores["relevance_score"],
@@ -360,6 +361,8 @@ def evaluate_response(
             existing.explanation = explanation
             existing.weight = None
 
+    # Do not overwrite overall_score until HireAI's overall scoring
+    # formula and weights have been explicitly defined.
     db.commit()
     db.refresh(evaluation)
 
