@@ -1,0 +1,187 @@
+[
+  {
+    "candidate_id": "SYNTH-CAND-001",
+    "name": "Synthetic Candidate Alpha (Strong Match)",
+    "data_status": "SYNTHETIC_DATA_PROTOTYPE",
+    "overall_candidate_score": 89.92,
+    "category_scores": {
+      "resume_score": 89.35,
+      "job_matching_score": 89.6,
+      "interview_score": 92.6
+    },
+    "category_weights": {
+      "resume": 0.35,
+      "job_matching": 0.35,
+      "interview": 0.3
+    },
+    "breakdown": {
+      "resume": {
+        "score": 89.35,
+        "features": {
+          "skills_relevance": 0.92,
+          "relevant_experience": 0.88,
+          "education_relevance": 0.85
+        },
+        "fallbacks_applied": []
+      },
+      "job_matching": {
+        "score": 89.6,
+        "features": {
+          "required_skills_matched": 0.9,
+          "missing_required_skills": 0.1,
+          "skill_retention_score": 0.9,
+          "overall_jd_relevance": 0.89
+        },
+        "fallbacks_applied": []
+      },
+      "interview": {
+        "score": 92.6,
+        "features": {
+          "interview_answer_relevance": 0.94,
+          "communication_assessment": 0.9
+        },
+        "fallbacks_applied": []
+      }
+    }
+  },
+  {
+    "candidate_id": "SYNTH-CAND-002",
+    "name": "Synthetic Candidate Beta (Moderate Match / Promising Potential)",
+    "data_status": "SYNTHETIC_DATA_PROTOTYPE",
+    "overall_candidate_score": 70.36,
+    "category_scores": {
+      "resume_score": 66.75,
+      "job_matching_score": 66.2,
+      "interview_score": 79.4
+    },
+    "category_weights": {
+      "resume": 0.35,
+      "job_matching": 0.35,
+      "interview": 0.3
+    },
+    "breakdown": {
+      "resume": {
+        "score": 66.75,
+        "features": {
+          "skills_relevance": 0.7,
+          "relevant_experience": 0.6,
+          "education_relevance": 0.75
+        },
+        "fallbacks_applied": []
+      },
+      "job_matching": {
+        "score": 66.2,
+        "features": {
+          "required_skills_matched": 0.65,
+          "missing_required_skills": 0.35,
+          "skill_retention_score": 0.65,
+          "overall_jd_relevance": 0.68
+        },
+        "fallbacks_applied": []
+      },
+      "interview": {
+        "score": 79.4,
+        "features": {
+          "interview_answer_relevance": 0.78,
+          "communication_assessment": 0.82
+        },
+        "fallbacks_applied": []
+      }
+    }
+  },
+  {
+    "candidate_id": "SYNTH-CAND-003",
+    "name": "Synthetic Candidate Gamma (Weak Match / Significant Skill Gaps)",
+    "data_status": "SYNTHETIC_DATA_PROTOTYPE",
+    "overall_candidate_score": 38.68,
+    "category_scores": {
+      "resume_score": 35.25,
+      "job_matching_score": 37.8,
+      "interview_score": 45.25
+    },
+    "category_weights": {
+      "resume": 0.35,
+      "job_matching": 0.35,
+      "interview": 0.3
+    },
+    "breakdown": {
+      "resume": {
+        "score": 35.25,
+        "features": {
+          "skills_relevance": 0.35,
+          "relevant_experience": 0.3,
+          "education_relevance": 0.5
+        },
+        "fallbacks_applied": []
+      },
+      "job_matching": {
+        "score": 37.8,
+        "features": {
+          "required_skills_matched": 0.25,
+          "missing_required_skills": 0.75,
+          "skill_retention_score": 0.25,
+          "overall_jd_relevance": 0.32
+        },
+        "fallbacks_applied": []
+      },
+      "interview": {
+        "score": 45.25,
+        "features": {
+          "interview_answer_relevance": 0.4,
+          "communication_assessment": 0.55
+        },
+        "fallbacks_applied": []
+      }
+    }
+  },
+  {
+    "candidate_id": "SYNTH-CAND-004",
+    "name": "Synthetic Candidate Delta (Missing & Borderline Data Edge Case)",
+    "data_status": "SYNTHETIC_DATA_PROTOTYPE",
+    "overall_candidate_score": 64.9,
+    "category_scores": {
+      "resume_score": 49.5,
+      "job_matching_score": 73.8,
+      "interview_score": 72.75
+    },
+    "category_weights": {
+      "resume": 0.35,
+      "job_matching": 0.35,
+      "interview": 0.3
+    },
+    "breakdown": {
+      "resume": {
+        "score": 49.5,
+        "features": {
+          "skills_relevance": 0.8,
+          "relevant_experience": 0.0,
+          "education_relevance": 0.9
+        },
+        "fallbacks_applied": [
+          "relevant_experience"
+        ]
+      },
+      "job_matching": {
+        "score": 73.8,
+        "features": {
+          "required_skills_matched": 0.75,
+          "missing_required_skills": 0.25,
+          "skill_retention_score": 0.75,
+          "overall_jd_relevance": 0.72
+        },
+        "fallbacks_applied": []
+      },
+      "interview": {
+        "score": 72.75,
+        "features": {
+          "interview_answer_relevance": 0.85,
+          "communication_assessment": 0.5
+        },
+        "fallbacks_applied": [
+          "communication_assessment"
+        ]
+      }
+    }
+  }
+]
+

@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "HireAI Candidate Scoring Feature Schema",
+  "description": "Preliminary feature schema definition for Member 3 candidate scoring model design. Note: These are proposed features designed for candidate evaluation and are not yet fully integrated into the live backend.",
+  "type": "object",
+  "categories": {
+    "resume_features": {
+      "category_name": "Resume-related features",
+      "description": "Features derived from the candidate's parsed resume documenting past background, academic record, and stated qualifications.",
+      "weight_in_prototype": 0.35,
+      "features": {
+        "skills_relevance": {
+          "description": "Relevance and depth of candidate's stated skill profile relative to occupational expectations.",
+          "data_type": "float",
+          "expected_input_range": [0.0, 1.0],
+          "higher_is_better": true,
+          "source": "resume",
+          "missing_value_fallback": 0.0
+        },
+        "relevant_experience": {
+          "description": "Directly applicable domain experience normalized against target seniority benchmarks.",
+          "data_type": "float",
+          "expected_input_range": [0.0, 1.0],
+          "higher_is_better": true,
+          "source": "resume",
+          "missing_value_fallback": 0.0
+        },
+        "education_relevance": {
+          "description": "Alignment of candidate's academic credentials, degree level, and discipline to role expectations.",
+          "data_type": "float",
+          "expected_input_range": [0.0, 1.0],
+          "higher_is_better": true,
+          "source": "resume",
+          "missing_value_fallback": 0.5
+        }
+      }
+    },
+    "job_matching_features": {
+      "category_name": "Job matching features",
+      "description": "Features comparing candidate profile specifics against the target job description requirements and vacancy criteria.",
+      "weight_in_prototype": 0.35,
+      "features": {
+        "required_skills_matched": {
+          "description": "Ratio of mandatory/core required skills specified in the job description that the candidate explicitly demonstrates.",
+          "data_type": "float",
+          "expected_input_range": [0.0, 1.0],
+          "higher_is_better": true,
+          "source": "job_description_comparison",
+          "missing_value_fallback": 0.0
+        },
+        "missing_required_skills": {
+          "description": "Count or normalized ratio of missing mandatory skills identified in the gap analysis.",
+          "data_type": "float",
+          "expected_input_range": [0.0, 1.0],
+          "higher_is_better": false,
+          "source": "job_description_comparison",
+          "missing_value_fallback": 1.0
+        },
+        "overall_jd_relevance": {
+          "description": "Semantic relevance score between candidate profile text and full job description text (e.g. dense bi-encoder cosine similarity).",
+          "data_type": "float",
+          "expected_input_range": [0.0, 1.0],
+          "higher_is_better": true,
+          "source": "job_description_comparison",
+          "missing_value_fallback": 0.0
+        }
+      }
+    },
+    "interview_features": {
+      "category_name": "Interview-related features",
+      "description": "Features extracted from technical and behavioral interview transcript analysis and evaluation.",
+      "weight_in_prototype": 0.30,
+      "features": {
+        "answer_relevance": {
+          "description": "Semantic accuracy and contextual correctness of candidate answers to structured interview questions.",
+          "data_type": "float",
+          "expected_input_range": [0.0, 1.0],
+          "higher_is_better": true,
+          "source": "interview_analysis",
+          "missing_value_fallback": 0.0
+        },
+        "communication_assessment": {
+          "description": "Evaluated clarity, structure, conciseness, and articulation of responses during interview rounds.",
+          "data_type": "float",
+          "expected_input_range": [0.0, 1.0],
+          "higher_is_better": true,
+          "source": "interview_analysis",
+          "missing_value_fallback": 0.5
+        }
+      }
+    }
+  }
+}
+

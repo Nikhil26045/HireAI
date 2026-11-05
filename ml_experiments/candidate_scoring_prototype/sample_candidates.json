@@ -1,0 +1,55 @@
+[
+  {
+    "candidate_id": "SYNTH-CAND-001",
+    "name": "Synthetic Candidate Alpha (Strong Match)",
+    "note": "ILLUSTRATIVE SYNTHETIC DATA - NOT A REAL APPLICANT",
+    "skills_relevance": 0.92,
+    "relevant_experience": 0.88,
+    "education_relevance": 0.85,
+    "required_skills_matched": 0.90,
+    "missing_required_skills": 0.10,
+    "overall_jd_relevance": 0.89,
+    "interview_answer_relevance": 0.94,
+    "communication_assessment": 0.90
+  },
+  {
+    "candidate_id": "SYNTH-CAND-002",
+    "name": "Synthetic Candidate Beta (Moderate Match / Promising Potential)",
+    "note": "ILLUSTRATIVE SYNTHETIC DATA - NOT A REAL APPLICANT",
+    "skills_relevance": 0.70,
+    "relevant_experience": 0.60,
+    "education_relevance": 0.75,
+    "required_skills_matched": 0.65,
+    "missing_required_skills": 0.35,
+    "overall_jd_relevance": 0.68,
+    "interview_answer_relevance": 0.78,
+    "communication_assessment": 0.82
+  },
+  {
+    "candidate_id": "SYNTH-CAND-003",
+    "name": "Synthetic Candidate Gamma (Weak Match / Significant Skill Gaps)",
+    "note": "ILLUSTRATIVE SYNTHETIC DATA - NOT A REAL APPLICANT",
+    "skills_relevance": 0.35,
+    "relevant_experience": 0.30,
+    "education_relevance": 0.50,
+    "required_skills_matched": 0.25,
+    "missing_required_skills": 0.75,
+    "overall_jd_relevance": 0.32,
+    "interview_answer_relevance": 0.40,
+    "communication_assessment": 0.55
+  },
+  {
+    "candidate_id": "SYNTH-CAND-004",
+    "name": "Synthetic Candidate Delta (Missing & Borderline Data Edge Case)",
+    "note": "ILLUSTRATIVE SYNTHETIC DATA - NOT A REAL APPLICANT",
+    "skills_relevance": 0.80,
+    "relevant_experience": null,
+    "education_relevance": 0.90,
+    "required_skills_matched": 0.75,
+    "missing_required_skills": 0.25,
+    "overall_jd_relevance": 0.72,
+    "interview_answer_relevance": 0.85,
+    "communication_assessment": null
+  }
+]
+
