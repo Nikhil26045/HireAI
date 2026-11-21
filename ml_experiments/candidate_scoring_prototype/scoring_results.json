@@ -3,7 +3,7 @@
     "candidate_id": "SYNTH-CAND-001",
     "name": "Synthetic Candidate Alpha (Strong Match)",
     "data_status": "SYNTHETIC_DATA_PROTOTYPE",
-    "overall_candidate_score": 89.92,
+    "overall_candidate_score": 90.41,
     "category_scores": {
       "resume_score": 89.35,
       "job_matching_score": 89.6,
@@ -48,7 +48,7 @@
     "candidate_id": "SYNTH-CAND-002",
     "name": "Synthetic Candidate Beta (Moderate Match / Promising Potential)",
     "data_status": "SYNTHETIC_DATA_PROTOTYPE",
-    "overall_candidate_score": 70.36,
+    "overall_candidate_score": 70.35,
     "category_scores": {
       "resume_score": 66.75,
       "job_matching_score": 66.2,
@@ -93,10 +93,10 @@
     "candidate_id": "SYNTH-CAND-003",
     "name": "Synthetic Candidate Gamma (Weak Match / Significant Skill Gaps)",
     "data_status": "SYNTHETIC_DATA_PROTOTYPE",
-    "overall_candidate_score": 38.68,
+    "overall_candidate_score": 35.64,
     "category_scores": {
       "resume_score": 35.25,
-      "job_matching_score": 37.8,
+      "job_matching_score": 27.8,
       "interview_score": 45.25
     },
     "category_weights": {
@@ -115,7 +115,7 @@
         "fallbacks_applied": []
       },
       "job_matching": {
-        "score": 37.8,
+        "score": 27.8,
         "features": {
           "required_skills_matched": 0.25,
           "missing_required_skills": 0.75,
@@ -138,7 +138,7 @@
     "candidate_id": "SYNTH-CAND-004",
     "name": "Synthetic Candidate Delta (Missing & Borderline Data Edge Case)",
     "data_status": "SYNTHETIC_DATA_PROTOTYPE",
-    "overall_candidate_score": 64.9,
+    "overall_candidate_score": 64.98,
     "category_scores": {
       "resume_score": 49.5,
       "job_matching_score": 73.8,
@@ -184,4 +184,3 @@
     }
   }
 ]
-
