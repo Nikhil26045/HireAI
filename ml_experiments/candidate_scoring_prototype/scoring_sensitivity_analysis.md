@@ -180,13 +180,13 @@ python -m unittest -v test_scoring_prototype
 ```
 
 ### Test Suite Results:
-- **Total Tests Executed:** 17
-- **Passed:** 17
+- **Total Tests Executed:** 19
+- **Passed:** 19
 - **Failed:** 0
 - **Errors:** 0
 - **Status:** **100% PASS**
 
-### Test Coverage Breakdown (17 Test Cases):
+### Test Coverage Breakdown (19 Test Cases):
 1. **Normal Input Processing:**
    - `test_normal_input_produces_all_scores_and_breakdown`: Validates that valid candidate data produces complete output schema (overall score, category scores, feature breakdowns, and empty fallback lists).
 2. **Score Range Boundaries:**
@@ -205,12 +205,14 @@ python -m unittest -v test_scoring_prototype
 6. **Boundary Values:**
    - `test_minimum_boundary_values`: Evaluates minimum possible inputs (all $0.0$, missing required skills $= 1.0$) yielding clean $0.0$ scores.
    - `test_maximum_boundary_values`: Evaluates maximum possible inputs (all $1.0$, missing required skills $= 0.0$) yielding clean $100.0$ scores.
-7. **Invalid & Malformed Values:**
+7. **Invalid, Malformed & Boolean Values:**
    - `test_negative_values_clamped_to_min`: Validates clamping for negative values ($< 0.0 \rightarrow 0.0$).
    - `test_exceeded_values_clamped_to_max`: Validates clamping for excessive values ($> 1.0 \rightarrow 1.0$).
    - `test_non_numeric_and_malformed_types`: Tests handling of invalid strings, nested lists, and dicts.
    - `test_numeric_strings_converted_properly`: Tests automatic string-to-float conversion (e.g., `"0.85"` $\rightarrow 0.85$).
    - `test_nan_and_infinity_handling`: Tests `float('nan')`, `float('inf')`, and `float('-inf')` triggering fallback logic.
+   - `test_boolean_inputs_trigger_fallback`: Tests that `True` and `False` are rejected before numeric coercion and fall back to respective defaults.
+   - `test_boolean_in_candidate_scoring_tracks_fallbacks`: Validates candidate scoring with boolean features properly logs audit records under `fallbacks_applied` and accurately calculates category scores.
 
 ---
 
