@@ -1,0 +1,80 @@
+{
+  "model_version": "v1.0-ml-proxy",
+  "scikit_learn_version": "1.9.1",
+  "dataset_info": {
+    "total_rows": 5000,
+    "train_rows": 4000,
+    "test_rows": 1000,
+    "labels_type": "SYNTHETIC_PROXY_LABELS (rule-based + noise)"
+  },
+  "feature_order": [
+    "skills_relevance",
+    "relevant_experience",
+    "education_relevance",
+    "required_skills_matched",
+    "missing_required_skills",
+    "overall_jd_relevance",
+    "interview_answer_relevance",
+    "communication_assessment"
+  ],
+  "chosen_model": "Ridge Regression",
+  "selection_reason": "Ridge chosen for superior interpretability and exact linear coefficient attribution. Holdout MAE difference (-0.162 points) was below the threshold of 1.0 to justify a non-linear black box.",
+  "model_performance": {
+    "cross_validation_5fold": {
+      "Dummy (Mean Baseline)": {
+        "r2": -0.003404647294374996,
+        "mae": 12.267298865625003,
+        "rmse": 15.582184523629161
+      },
+      "Ridge Regression": {
+        "r2": 0.9625466753135348,
+        "mae": 2.3722497105872984,
+        "rmse": 3.0042123078075447
+      },
+      "Gradient Boosting": {
+        "r2": 0.9544591666923763,
+        "mae": 2.6306724111288746,
+        "rmse": 3.313244370604038
+      }
+    },
+    "holdout_test_set": {
+      "Dummy (Mean Baseline)": {
+        "r2": -9.576254976995102e-05,
+        "mae": 12.08321928,
+        "rmse": 15.33514494328306
+      },
+      "Ridge Regression": {
+        "r2": 0.9616880580767332,
+        "mae": 2.422041615055761,
+        "rmse": 3.001471157851347
+      },
+      "Gradient Boosting": {
+        "r2": 0.9556691501483783,
+        "mae": 2.5840750597163473,
+        "rmse": 3.2286436958525004
+      }
+    }
+  },
+  "ridge_coefficients": {
+    "skills_relevance": 15.630825,
+    "relevant_experience": 14.628811,
+    "education_relevance": 5.004052,
+    "required_skills_matched": 13.667719,
+    "missing_required_skills": -6.795413,
+    "overall_jd_relevance": 14.093587,
+    "interview_answer_relevance": 19.076526,
+    "communication_assessment": 10.539336
+  },
+  "ridge_intercept": 6.902099,
+  "theoretical_weights": {
+    "skills_relevance": 15.75,
+    "relevant_experience": 14.0,
+    "education_relevance": 5.25,
+    "required_skills_matched": 14.0,
+    "missing_required_skills": -7.0,
+    "overall_jd_relevance": 14.0,
+    "interview_answer_relevance": 19.5,
+    "communication_assessment": 10.5
+  },
+  "theoretical_intercept": 7.0
+}
